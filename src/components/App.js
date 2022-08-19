@@ -16,8 +16,10 @@ function App() {
 
   const html = quotes
   .filter((quote) => {
-  return quote.quote.toLowerCase().includes(searchQuote.toLowerCase()) 
-  || quote.character === searchCharacter;
+    return searchCharacter === quote.character;
+  })
+  .filter((quote) => {
+  return quote.quote.toLowerCase().includes(searchQuote.toLowerCase())
   })
   .map((quote, index) => {
     return (<li key={index}>
