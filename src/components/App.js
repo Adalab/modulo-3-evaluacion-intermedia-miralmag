@@ -11,8 +11,15 @@ function App() {
     quote: '',
     character: ''
   })
+  const [searchQuote, setSearchQuote] = useState ('');
+  const [searchCharacter, setSearchCharacter] = useState ('Todos');
 
-  const html = quotes.map((quote, index) => {
+  const html = quotes
+  .filter((quote) => {
+  return quote.quote.toLowerCase().includes(searchQuote.toLowerCase()) 
+  || quote.character === searchCharacter;
+  })
+  .map((quote, index) => {
     return (<li key={index}>
       {quote.quote} - {quote.character}
     </li>)
@@ -35,22 +42,34 @@ function App() {
     })
   }
 
+  const handleSearchQuote = (ev) => {
+    setSearchQuote(ev.currentTarget.value);
+  }
+
+  const handleSearchCharacter = (ev) => {
+    setSearchCharacter(ev.currentTarget.value);
+  }
 
   return (
     <div>
       <h1>Frases de Friends</h1>
       <form>
         <label htmlFor='quote-filter'>Filtrar por frase</label>
-        <input type='text' id='quote-filter'></input>
+        <input 
+          type='text' 
+          id='quote-filter'
+          value={searchQuote}
+          onChange={handleSearchQuote}>
+        </input>
         <label htmlFor='char-filter'>Filtrar por personaje</label>
-        <select id='char-filter'>
-          <option value='todos' selected>Todos</option>
-          <option value='ross'>Ross</option>
-          <option value='monica'>Monica</option>
-          <option value='joey'>Joey</option>
-          <option value='phoebe'>Phoebe</option>
-          <option value='chandler'>Chandler</option>
-          <option value='rachel'>Rachel</option>
+        <select name='char-filter' id='char-filter' onChange={handleSearchCharacter}>
+          <option selected>Todos</option>
+          <option>Ross</option>
+          <option>Monica</option>
+          <option>Joey</option>
+          <option>Phoebe</option>
+          <option>Chandler</option>
+          <option>Rachel</option>
         </select>
       </form>
       <ul>
