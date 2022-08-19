@@ -11,7 +11,7 @@ function App() {
     character: ''
   })
   const [searchQuote, setSearchQuote] = useState ('');
-  const [searchCharacter, setSearchCharacter] = useState ('');
+  const [searchCharacter, setSearchCharacter] = useState ('Todos');
 
   let html;
  
@@ -77,7 +77,7 @@ function App() {
           onChange={handleSearchQuote}>
         </input>
         <label htmlFor='char-filter'>Filtrar por personaje</label>
-        <select name='char-filter' id='char-filter' onChange={handleSearchCharacter}>
+        <select className='select' name='char-filter' id='char-filter' onChange={handleSearchCharacter}>
           <option selected>Todos</option>
           <option>Ross</option>
           <option>Monica</option>
