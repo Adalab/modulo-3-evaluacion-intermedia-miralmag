@@ -11,11 +11,24 @@ function App() {
     character: ''
   })
   const [searchQuote, setSearchQuote] = useState ('');
-  const [searchCharacter, setSearchCharacter] = useState ('Todos');
+  const [searchCharacter, setSearchCharacter] = useState ('');
 
-  const html = quotes
+  let html;
+ 
+  if (searchCharacter === 'Todos') {
+  html = quotes
   .filter((quote) => {
-    return searchCharacter === quote.character;
+  return quote.quote.toLowerCase().includes(searchQuote.toLowerCase())
+  })
+  .map((quote, index) => {
+    return (<li key={index} className='list-item'>
+      {quote.quote} - {quote.character}
+    </li>)
+  })
+} else {
+  html = quotes
+  .filter((quote) => {
+  return searchCharacter === quote.character;
   })
   .filter((quote) => {
   return quote.quote.toLowerCase().includes(searchQuote.toLowerCase())
@@ -25,6 +38,7 @@ function App() {
       {quote.quote} - {quote.character}
     </li>)
   })
+}
 
   const handleNewQuote = (ev) => {
     setNewQuote({
