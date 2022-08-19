@@ -3,7 +3,6 @@ import friendsData from '../data/friends-quotes.json';
 import '../styles/App.css';
 
 
-
 function App() {
 
   const [quotes, setQuotes] = useState(friendsData);
@@ -22,7 +21,7 @@ function App() {
   return quote.quote.toLowerCase().includes(searchQuote.toLowerCase())
   })
   .map((quote, index) => {
-    return (<li key={index}>
+    return (<li key={index} className='list-item'>
       {quote.quote} - {quote.character}
     </li>)
   })
@@ -54,8 +53,8 @@ function App() {
 
   return (
     <div>
-      <h1>Frases de Friends</h1>
-      <form>
+      <h1 className='title'>frases de friends</h1>
+      <form className='filter-form'>
         <label htmlFor='quote-filter'>Filtrar por frase</label>
         <input 
           type='text' 
@@ -74,27 +73,29 @@ function App() {
           <option>Rachel</option>
         </select>
       </form>
-      <ul>
+      <ul className='list'>
         {html}
       </ul>
 
-      <form>
+      <form className='add-form'>
         <h3>Añadir una nueva frase</h3>
-        <label htmlFor='add-quote'>Frase</label>
-        <input 
-          type='text' 
-          id='quote' 
-          value={newQuote.quote} 
-          onChange={handleNewQuote}>
-        </input>
-        <label htmlFor='add-character'>Personaje</label>
-        <input 
-          type='text' 
-          id='character' 
-          value={newQuote.character} 
-          onChange={handleNewQuote}>
-        </input>
-        <button onClick={handleAddQuote}>Añadir nueva frase</button>
+        <div className='quote-block'>
+          <label htmlFor='add-quote'>Frase</label>
+          <input 
+            type='text' 
+            id='quote' 
+            value={newQuote.quote} 
+            onChange={handleNewQuote}>
+          </input>
+          <label htmlFor='add-character'>Personaje</label>
+          <input 
+            type='text' 
+            id='character' 
+            value={newQuote.character} 
+            onChange={handleNewQuote}>
+          </input>
+        </div>
+        <button className='add-btn' onClick={handleAddQuote}>Añadir nueva frase</button>
       </form>
     </div>
   );

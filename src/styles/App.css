@@ -1,0 +1,50 @@
+.title{
+    text-transform: uppercase;
+    color: #213469;
+    text-align: center;
+}
+
+.filter-form{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    color: #213469;
+}
+
+.list{
+    list-style: none; 
+    color: #000b32;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+    text-align: left;
+    gap: 20px;
+}
+
+.list-item{
+    border: #213469 solid 1px;
+    background-color: #b1dbd3;
+    padding: 10px;
+    max-width: fit-content;
+}
+
+.add-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: #213469;
+}
+
+.quote-block{
+    display: flex;
+    gap: 10px;
+}
+
+.add-btn{
+    color: #c3f0e2;
+    background-color: #213469;
+    border: none;
+    padding: 10px;
+}
