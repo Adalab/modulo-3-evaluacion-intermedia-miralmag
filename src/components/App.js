@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import friendsData from '../data/friends-quotes.json';
+import callToApi from '../services/api';
 import '../styles/App.css';
 
 
@@ -12,6 +13,7 @@ function App() {
   })
   const [searchQuote, setSearchQuote] = useState ('');
   const [searchCharacter, setSearchCharacter] = useState ('Todos');
+
 
   let html;
  
