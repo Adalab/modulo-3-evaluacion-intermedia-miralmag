@@ -12,12 +12,12 @@ function App() {
     character: ''
   })
   const [searchQuote, setSearchQuote] = useState ('');
-  const [searchCharacter, setSearchCharacter] = useState ('Todos');
+  const [searchCharacter, setSearchCharacter] = useState ('all');
 
 
   let html;
  
-  if (searchCharacter === 'Todos') {
+  if (searchCharacter === 'all') {
   html = quotes
   .filter((quote) => {
   return quote.quote.toLowerCase().includes(searchQuote.toLowerCase())
@@ -79,14 +79,14 @@ function App() {
           onChange={handleSearchQuote}>
         </input>
         <label htmlFor='char-filter'>Filtrar por personaje</label>
-        <select className='select' name='char-filter' id='char-filter' onChange={handleSearchCharacter}>
-          <option selected>Todos</option>
-          <option>Ross</option>
-          <option>Monica</option>
-          <option>Joey</option>
-          <option>Phoebe</option>
-          <option>Chandler</option>
-          <option>Rachel</option>
+        <select className='select' name='char-filter' id='char-filter' onChange={handleSearchCharacter} value={searchCharacter}>
+          <option value='all' selected>Todos</option>
+          <option value='Ross'>Ross</option>
+          <option value='Monica'>Monica</option>
+          <option value='Joey'>Joey</option>
+          <option value='Phoebe'>Phoebe</option>
+          <option value='Chandler'>Chandler</option>
+          <option value='Rachel'>Rachel</option>
         </select>
       </form>
       <ul className='list'>
