@@ -57,6 +57,8 @@ function App() {
       quote: '',
       character: ''
     })
+    setSearchQuote('');
+    setSearchCharacter('all');
   }
 
   const handleSearchQuote = (ev) => {
