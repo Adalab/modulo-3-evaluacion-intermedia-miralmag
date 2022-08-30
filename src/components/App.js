@@ -69,7 +69,7 @@ function App() {
 
   return (
     <div>
-      <h1 className='title'>frases de friends</h1>
+      <h1 title='Frases de Friends' className='title'>frases de friends</h1>
       <form className='filter-form'>
         <label htmlFor='quote-filter'>Filtrar por frase</label>
         <input 
